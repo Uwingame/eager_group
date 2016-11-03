@@ -39,7 +39,7 @@ module EagerGroup
           end
           @records.each do |record|
             id = record.send primary_key
-            record.send "#{defination_key}=", aggregate_hash[id] || 0
+            record.send "#{defination_key}=", aggregate_hash[id]||aggregate_hash[id.to_s]||0
           end
         end
       end
